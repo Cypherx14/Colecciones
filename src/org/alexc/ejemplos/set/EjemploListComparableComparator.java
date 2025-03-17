@@ -2,14 +2,12 @@ package org.alexc.ejemplos.set;
 
 import org.alexc.ejemplos.modelo.Alumno;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
-public class EjemploHashSetUnicidad {
+public class EjemploListComparableComparator {
     public static void main(String[] args) {
 
-        Set<Alumno> alumnos = new HashSet<>();
+        List<Alumno> alumnos = new ArrayList<>();
 
         alumnos.add(new Alumno("Pato", 5));
         alumnos.add(new Alumno("Cata", 6.7));
@@ -19,17 +17,11 @@ public class EjemploHashSetUnicidad {
         alumnos.add(new Alumno("Zeus", 10));
         alumnos.add(new Alumno("Zeus", 10));
 
-//        System.out.println("alumnos = " + alumnos);
-        System.out.println("Iterando con foreach");
-        for (Alumno a : alumnos){
-            System.out.println(a);
-        }
-        System.out.println("Iterando usando while y iterator");
-        Iterator<Alumno> it = alumnos.iterator();
-        while(it.hasNext()){
-            Alumno a = it.next();
-            System.out.println(a);
-        }
+//        Collections.sort(alumnos, (a,b)-> b.getNombre().compareTo(a.getNombre()));
+//        alumnos.sort((a,b)-> b.getNombre().compareTo(a.getNombre()));
+        alumnos.sort(Comparator.comparing((Alumno a)-> a.getNota()).reversed());
+
+
         System.out.println("Iterando usando Stream forEach");
         /*usando expresiones lambda*/
 //        alumnos.forEach(a -> System.out.println(a));
