@@ -1,4 +1,4 @@
-package org.alexc.ejemplos.set;
+package org.alexc.ejemplos.list;
 
 import org.alexc.ejemplos.modelo.Alumno;
 

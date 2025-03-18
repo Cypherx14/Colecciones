@@ -1,10 +1,9 @@
-package org.alexc.ejemplos.set;
+package org.alexc.ejemplos.list;
 
 import org.alexc.ejemplos.modelo.Alumno;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.ListIterator;
 
 public class EjemploLinkedListMetodos {
     public static void main(String[] args) {
@@ -49,8 +48,25 @@ public class EjemploLinkedListMetodos {
         System.out.println(alumEnlazada + " ,size " + alumEnlazada.size());
 
         Alumno atenea = new Alumno("Atenea", 1.78);
+        alumEnlazada.addLast(atenea);
+
+        /*indexOf, obtener el indice del elemento*/
+        System.out.println("Indice Atenea " + alumEnlazada.indexOf(atenea));
+
+        /*editar un elemento con set*/
+        alumEnlazada.set(2, new Alumno("Hades", 2.5));
+        System.out.println(alumEnlazada + " ,size " + alumEnlazada.size());
 
 
+        ListIterator<Alumno> li = alumEnlazada.listIterator();
+
+        while(li.hasNext()){
+            System.out.println(li.next());
+        }
+        System.out.println("*******PARA ATRAS*********");
+        while(li.hasPrevious()){
+            System.out.println(li.previous());
+        }
 
     }
 }

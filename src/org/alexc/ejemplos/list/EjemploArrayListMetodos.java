@@ -1,11 +1,9 @@
-package org.alexc.ejemplos.set;
+package org.alexc.ejemplos.list;
 
 import org.alexc.ejemplos.modelo.Alumno;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 public class EjemploArrayListMetodos {
     public static void main(String[] args) {
