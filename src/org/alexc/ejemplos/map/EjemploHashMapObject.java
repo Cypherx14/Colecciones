@@ -69,13 +69,31 @@ public class EjemploHashMapObject {
         System.out.println("*********** keySet");
         Set<String> keys = persona.keySet();
         for(String key: keys){
-            System.out.println("key = " + key);
+            Object valor = persona.get(key);
+
+            if(valor instanceof Map){
+                Map<String,String> direccionMap;
+                direccionMap = (Map<String, String>) valor;
+                System.out.println("El pais de la persona " + persona.get("nombre")+ ": "
+                + direccionMap.get("pais"));
+            }else{
+                System.out.println("key = " + key);
+
+            }
         }
         System.out.println("*********** entrySet");
         for(Map.Entry<String, Object> par : persona.entrySet()){
-            System.out.println("key  = " + par.getKey() + " | valor = " + par.getValue());
+            Object valor = par.getValue();
+            if(valor instanceof Map){
+                Map<String,String> direccionMap;
+                direccionMap = (Map<String, String>) valor;
+                System.out.println("El pais de la persona " + persona.get("nombre")+ ": "
+                        + direccionMap.get("pais"));
+            }else {
+                System.out.println("key  = " + par.getKey() + " | valor = " + valor );
+            }
         }
-        System.out.println("*********** keySet");
+        System.out.println("*********** keySet + valor");
         for(String key : persona.keySet()){
             Object valor = persona.get(key);
             System.out.println("key = " + key + " | valor = " + valor);
